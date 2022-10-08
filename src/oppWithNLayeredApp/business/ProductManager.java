@@ -1,11 +1,24 @@
 package oppWithNLayeredApp.business;
 
+import oppWithNLayeredApp.dateAccess.HibernateProductDao;
 import oppWithNLayeredApp.dateAccess.ProductDao;
 import oppWithNLayeredApp.dateAccess.jdbcProductDao;
 import oppWithNLayeredApp.entities.Product;
 
 public class ProductManager {
-  public static void add (Product product) throws Exception {
+	
+	private ProductDao productDao;
+	
+	
+	
+  public ProductManager(ProductDao productDao) {
+		
+		this.productDao = productDao;
+	}
+
+
+
+public static void add (Product product) throws Exception {
 	  
 
 	  if (product.getUnitPrice()<10) {
